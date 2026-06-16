@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+}
+
+img{
+    width:120px;
+}
+</style>
+</head>
+<body>
+
+<h1>Pokemon Battle</h1>
+
+<div class="container">
+
+    <div>
+        <h2 id="n1"></h2>
+        <img id="i1">
+        <p id="p1"></p>
+    </div>
+
+    <div>
+        <h2 id="n2"></h2>
+        <img id="i2">
+        <p id="p2"></p>
+    </div>
+
+</div>
+
+<button onclick="battle()">Battle</button>
+
+<h3 id="result"></h3>
+
+<script>
+let p=[
+["Pikachu","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"],
+["Charizard","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"],
+["Bulbasaur","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"],
+["Squirtle","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"]
+];
+
+function battle(){
+    let a=p[Math.floor(Math.random()*p.length)];
+    let b=p[Math.floor(Math.random()*p.length)];
+
+    let x=Math.floor(Math.random()*100)+1;
+    let y=Math.floor(Math.random()*100)+1;
+
+    n1.innerText=a[0];
+    i1.src=a[1];
+    p1.innerText="Power: "+x;
+
+    n2.innerText=b[0];
+    i2.src=b[1];
+    p2.innerText="Power: "+y;
+
+    result.innerText=
+        x>y ? a[0]+" Wins!" :
+        y>x ? b[0]+" Wins!" :
+        "Draw!";
+}
+</script>
+
+</body>
+</html>
